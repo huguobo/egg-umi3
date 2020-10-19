@@ -1,4 +1,4 @@
-# dashboard-web
+# eggjs + umi@3
 
 ## QuickStart
 
