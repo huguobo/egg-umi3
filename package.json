@@ -1,0 +1,71 @@
+{
+  "name": "dashboard-web",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^5.0.12",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.2.23",
+    "egg": "^2.15.1",
+    "egg-scripts": "^2.11.0",
+    "egg-view-assets": "^1.6.1",
+    "egg-view-nunjucks": "^2.2.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "umi": "^3.2.23",
+    "yorkie": "^2.0.0"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "eslint": "^5.13.0",
+    "eslint-config-egg": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "npm run build && egg-scripts start --daemon --title=egg-server-dashboard-web",
+    "stop": "egg-scripts stop --title=egg-server-dashboard-web",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "build": "npm run umi:build",
+    "umi:dev": "APP_ROOT=app/web umi dev",
+    "umi:build": "APP_ROOT=app/web HTML=none UMI_ENV=prod umi build",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "ci": {
+    "version": "10"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Cooper",
+  "license": "MIT"
+}
